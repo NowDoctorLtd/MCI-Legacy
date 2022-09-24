@@ -1,5 +1,5 @@
 ﻿/******************************
-* MCI Specialisation Model
+* MCI Specialty Model
 * Define what practitioners do in medicalese
 *
 * Author: Mark Brown

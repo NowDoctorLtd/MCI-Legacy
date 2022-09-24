@@ -1,3 +1,9 @@
+/******************************
+* MCI Search Controller
+* Search results for public
+* Author: Mark Brown
+* Authored: 17/09/2022
+******************************/
 using mci_main.Repository;
 using Microsoft.AspNetCore.Mvc;
 

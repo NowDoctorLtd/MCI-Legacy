@@ -1,5 +1,6 @@
 ﻿using mci_main.Models;
-using mci_main.Data;
+using mci_main.Helpers;
+using Microsoft.EntityFrameworkCore;
 
 namespace mci_main.Repository
 {
@@ -18,22 +19,28 @@ namespace mci_main.Repository
             {
                 return new SearchResults(); 
             }
-            query.ToLower();
-
             var results = new SearchResults();
             results.SearchQuery = query;
+
+            query = query.ToLower();
+
             // Results - any practitioner with a matching name, or any prac with a matching spec
-            results.Practitioners = _mciContext.Practitioner
+            var dbPractitioners = _mciContext.Practitioner.Include("PractitionerSpecialties.Specialty")
                 .Where(x => x.Name.ToLower().Contains(query)).Select(x => x).ToList();
 
-            var specialties = _mciContext.Practitioner
+            var viewPractitioners = PractitionerHelper.DbListToViewList(dbPractitioners);
+
+            var dbPracsWithSpecialties = _mciContext.Practitioner.Include("PractitionerSpecialties.Specialty")
                 .Where(x => x.PractitionerSpecialties
                     .Where(s => s.Specialty.Title.ToLower().Contains(query)).Any()
-                    ).ToList();
+                 ).ToList();
 
-            if (specialties.Any()) 
+            results.Practitioners = viewPractitioners;
+
+            if (dbPracsWithSpecialties.Any()) 
             {
-                results.Practitioners.AddRange(specialties);
+                viewPractitioners = PractitionerHelper.DbListToViewList(dbPracsWithSpecialties);
+                results.Practitioners.AddRange(viewPractitioners);
             }
 
             return results;

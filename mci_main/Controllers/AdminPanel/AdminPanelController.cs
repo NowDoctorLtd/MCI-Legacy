@@ -1,9 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+/******************************
+* MCI AdminPanel Controller
+* Author: Mark Brown
+* Authored: 10/09/2022
+******************************/
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using mci_main.Data;
 

@@ -6,19 +6,9 @@
 
 <h1>Practitioner Details</h1>
 <p>@Model.Title @Model.Name</p>
-<p>@Model.Location</p>
-
-<p>
-@if(Model.Specialties != null)
-{
-    @foreach (var item in Model.Specialties)
-    {
-        @Html.DisplayFor(modelItem => item.Title)
-    }
-}
-</p>
-
+<p>Location: @Model.Location</p>
+<p>Specialties: @Model.SpecialtiesStr</p>
 <p>DOB: @Model.DOB</p>
-<p>@Model.Bio</p>
+<p>About: @Model.Bio</p>
 
 

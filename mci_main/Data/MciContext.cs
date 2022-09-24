@@ -1,3 +1,10 @@
+/******************************
+* MCI Database Context
+* Bridges code to SQL.
+*
+* Author: Mark Brown
+* Authored: 10/09/2022
+******************************/
 using Microsoft.EntityFrameworkCore;
 using mci_main.Data;
 

@@ -6,9 +6,7 @@
 * Authored: 10/09/2022
 ******************************/
 
-using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mci_main.Data
 {
@@ -16,16 +14,13 @@ namespace mci_main.Data
     {
         [Required]
         public string Name { get; set; }
-        //    [Required]
+        [Required]
         public Title Title { get; set; }
-        //     [Required]
         public virtual ICollection<PractitionerSpecialty> PractitionerSpecialties { get; set; }
         public string Location { get; set; }
         public string Bio { get; set; }
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
-        //      [Required] 
-
     }
 
     public enum Title

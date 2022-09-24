@@ -1,4 +1,12 @@
-﻿using System.Diagnostics;
+﻿/******************************
+* MCI Home Controller
+* Index route and search.
+*
+* Author: Mark Brown
+* Authored: 10/09/2022
+******************************/
+
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using mci_main.Models;
 using System.Text.Encodings.Web;
