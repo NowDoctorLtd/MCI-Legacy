@@ -1,65 +1,24 @@
-@model IEnumerable<mci_main.Models.Practitioner>
+﻿@model mci_main.Models.View.PractitionerViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Details for ???";
 }
 
-<h1>Index</h1>
+<h1>Practitioner Details</h1>
+<p>@Model.Title @Model.Name</p>
+<p>@Model.Location</p>
 
 <p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DOB)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateCreated)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DOB)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.MciIdx">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MciIdx">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MciIdx">Delete</a>
-            </td>
-        </tr>
+@if(Model.Specialties != null)
+{
+    @foreach (var item in Model.Specialties)
+    {
+        @Html.DisplayFor(modelItem => item.Title)
+    }
 }
-    </tbody>
-</table>
+</p>
+
+<p>DOB: @Model.DOB</p>
+<p>@Model.Bio</p>
+
+

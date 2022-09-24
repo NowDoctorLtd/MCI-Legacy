@@ -9,7 +9,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace mci_main.Models
+namespace mci_main.Data
 {
     public class Specialty : MciBase
     {
@@ -18,7 +18,7 @@ namespace mci_main.Models
         public string LongDescription { get; set; }
         public string ShortDesc { get; set; }
 
-        public List<Practitioner> Practitioners { get; set; }
+        public virtual ICollection<PractitionerSpecialty> PractitionerSpecialties { get; set; }
     }
 }
 

@@ -20,7 +20,7 @@ namespace mci_main.Migrations
                     Location = table.Column<string>(type: "TEXT", nullable: false),
                     Bio = table.Column<string>(type: "TEXT", nullable: false),
                     DOB = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DateCreated = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "date('now')")
+                    DateCreated = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP")
                 },
                 constraints: table =>
                 {
@@ -28,48 +28,57 @@ namespace mci_main.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Specialisation",
+                name: "Specialty",
                 columns: table => new
                 {
                     MciIdx = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     LongDescription = table.Column<string>(type: "TEXT", nullable: false),
-                    ShortDesc = table.Column<string>(type: "TEXT", nullable: false)
+                    ShortDesc = table.Column<string>(type: "TEXT", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Specialisation", x => x.MciIdx);
+                    table.PrimaryKey("PK_Specialty", x => x.MciIdx);
                 });
 
             migrationBuilder.CreateTable(
                 name: "PractitionerSpecialty",
                 columns: table => new
                 {
-                    PractitionersMciIdx = table.Column<int>(type: "INTEGER", nullable: false),
-                    SpecialtiesMciIdx = table.Column<int>(type: "INTEGER", nullable: false)
+                    MciIdx = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PracIdx = table.Column<int>(type: "INTEGER", nullable: false),
+                    SpecIdx = table.Column<int>(type: "INTEGER", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PractitionerSpecialty", x => new { x.PractitionersMciIdx, x.SpecialtiesMciIdx });
+                    table.PrimaryKey("PK_PractitionerSpecialty", x => x.MciIdx);
                     table.ForeignKey(
-                        name: "FK_PractitionerSpecialty_Practitioner_PractitionersMciIdx",
-                        column: x => x.PractitionersMciIdx,
+                        name: "FK_PractitionerSpecialty_Practitioner_PracIdx",
+                        column: x => x.PracIdx,
                         principalTable: "Practitioner",
                         principalColumn: "MciIdx",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PractitionerSpecialty_Specialisation_SpecialtiesMciIdx",
-                        column: x => x.SpecialtiesMciIdx,
-                        principalTable: "Specialisation",
+                        name: "FK_PractitionerSpecialty_Specialty_SpecIdx",
+                        column: x => x.SpecIdx,
+                        principalTable: "Specialty",
                         principalColumn: "MciIdx",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_PractitionerSpecialty_SpecialtiesMciIdx",
+                name: "IX_PractitionerSpecialty_PracIdx",
                 table: "PractitionerSpecialty",
-                column: "SpecialtiesMciIdx");
+                column: "PracIdx");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PractitionerSpecialty_SpecIdx",
+                table: "PractitionerSpecialty",
+                column: "SpecIdx");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -81,7 +90,7 @@ namespace mci_main.Migrations
                 name: "Practitioner");
 
             migrationBuilder.DropTable(
-                name: "Specialisation");
+                name: "Specialty");
         }
     }
 }

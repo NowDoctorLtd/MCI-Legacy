@@ -21,7 +21,7 @@
                 @Html.DisplayNameFor(model => model.Practitioners[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Practitioners[0].Title)
+                @Html.DisplayNameFor(model => model.Practitioners[0].Location)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Practitioners[0].Bio)
@@ -46,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Bio)
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.MciIdx">Details</a> |
+                    <a asp-controller="practitioner" asp-action="Index" asp-route-id="@item.MciIdx">Details</a>
                 </td>
             </tr>
             }

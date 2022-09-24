@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using mci_main.Models;
+using mci_main.Data;
 
 namespace mci_main.Controllers.AdminPanel
 {
-    [Route("adminpanel/practitioner")]
-    public class PractitionerController : Controller
+    [Route("adminpanel")]
+    public class AdminPanelController : Controller
     {
         private readonly MciContext _context;
 
-        public PractitionerController(MciContext context)
+        public AdminPanelController(MciContext context)
         {
             _context = context;
         }

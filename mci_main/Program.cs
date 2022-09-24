@@ -1,7 +1,7 @@
-using mci_main.Models;
+using mci_main.Data;
 using mci_main.Repository;
+using mci_main.Repository.Implementation;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 // BEGIN Builder.
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +14,7 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<ISearchRepository, SearchRepository>();
+builder.Services.AddTransient<IPractitionerRepository, PractitionerRepository>();
 
 // END builder, create the webapp instance...
 var app = builder.Build();

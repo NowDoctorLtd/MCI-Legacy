@@ -1,47 +1,46 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using mci_main.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace mci_main.Models
+namespace mci_main.Data
 {
     // Sneed's
     public static class SeedData //Formerly Chuck's
     {
         public static void Initialise(IServiceProvider provider)
-        { 
+        {
             using (var ctx = new MciContext(
                provider.GetRequiredService<DbContextOptions<MciContext>>()))
-            { 
-                // Edit to match expected specialisations in sample data
-                if (!ctx.Specialisation.Any()) {
+            {
+                if (!ctx.Specialty.Any())
+                {
                     ctx.AddRange(
                         new Specialty
                         {
-                            Title = "orthopaedics",
-                            LongDescription = "None§",
-                            ShortDesc = "n"
+                            Title = "Orthopaedics",
+                            LongDescription = "these go to eleven",
+                            ShortDesc = "spinal crap"
                         },
                         new Specialty
                         {
-                            Title = "pharmacy",
+                            Title = "Pharmacy",
                             LongDescription = "drugs in mugs",
                             ShortDesc = "drugs"
                         },
                         new Specialty
                         {
-                            Title = "psychiatry",
+                            Title = "Psychiatry",
                             LongDescription = "mind to unwind",
                             ShortDesc = "mentalist"
+                        },
+                        new Specialty
+                        {
+                            Title = "Cardiology",
+                            LongDescription = "time is the rhythm of the heart",
+                            ShortDesc = "heart doctor"
                         }
                     );
                 }
-                /*
-                if (ctx.Practitioner.Any())
-                {
-                    Console.WriteLine("Startup: Database already seeded and feeded!");
-                    return; 
-                }
-                */
-
                 if (!ctx.Practitioner.Any())
                 {
                     ctx.AddRange(
@@ -51,6 +50,7 @@ namespace mci_main.Models
                             Title = Title.Dr,
                             Bio = "flux capacator",
                             Location = "hill valley",
+                            DOB = new DateTime(1932, 07, 08)
                         },
                         new Practitioner
                         {
@@ -58,7 +58,7 @@ namespace mci_main.Models
                             Title = Title.Dr,
                             Bio = "not forgotten",
                             Location = "east side",
-                            Specialties = new List<Specialty>().Where(x => x.Title.Equals("orthopaedics")).ToList()
+                            DOB = new DateTime(1972, 06, 19)
                         },
                         new Practitioner
                         {
@@ -66,6 +66,7 @@ namespace mci_main.Models
                             Title = Title.Dr,
                             Location = "bar",
                             Bio = "baz",
+                            DOB = new DateTime(2030, 12, 12)
                         },
                         new Practitioner
                         {
@@ -73,6 +74,7 @@ namespace mci_main.Models
                             Title = Title.Dr,
                             Location = "calcutta",
                             Bio = "rice and curry in a hurry",
+                            DOB = new DateTime(1979, 09, 23)
                         },
                         new Practitioner
                         {
@@ -80,6 +82,7 @@ namespace mci_main.Models
                             Title = Title.Dr,
                             Location = "space",
                             Bio = "works for One Million Dollars",
+                            DOB = new DateTime(1945, 08, 01),
                         },
                         new Practitioner
                         {
@@ -87,10 +90,11 @@ namespace mci_main.Models
                             Title = Title.Dr,
                             Location = "magherafelt",
                             Bio = "the true gosepl says buy my albums (kjv only)++",
+                            DOB = new DateTime(1901, 01, 07)
                         }
                     );
                 }
-
+                // NEED TO ASSOCIATE PRACS TO SPECS MANUALLY
                 ctx.SaveChanges();
             }
         }

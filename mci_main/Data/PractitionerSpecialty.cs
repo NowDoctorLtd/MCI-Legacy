@@ -2,18 +2,19 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace mci_main.Models
+namespace mci_main.Data
 {
     public class PractitionerSpecialty : MciBase
     {
-        [Key]
-        [Column(Order = 1)]
+        // Col 1 = MciIdx
+        [Column(Order = 2)]
         [ForeignKey("Practitioner")]
         public int PracIdx { get; set; }
-        [Key]
-        [Column(Order = 2)]
+        public virtual Practitioner Practitioner { get; set; }
+        [Column(Order = 3)]
         [ForeignKey("Specialty")]
         public int SpecIdx { get; set; }
+        public virtual Specialty Specialty { get; set; }
     }
 }
 
