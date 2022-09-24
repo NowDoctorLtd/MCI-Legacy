@@ -21,3 +21,7 @@ nav#mciNavBar {
     background-color: #e3f2fd;
     font-weight: 400;
 }
+
+a#mciName {
+    font-weight: bold;
+}
