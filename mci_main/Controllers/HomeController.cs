@@ -33,13 +33,13 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult search()
+    public IActionResult Search()
     {
         return View(); 
     }
 
     [HttpPost]
-    public string search(string query)
+    public string Search(string query)
     {
         return HtmlEncoder.Default.Encode(query); 
     }

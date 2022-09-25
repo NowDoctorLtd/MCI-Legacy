@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace mci_main.Migrations
 {
     [DbContext(typeof(MciContext))]
-    [Migration("20220924165949_init")]
+    [Migration("20220925144516_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,7 +18,7 @@ namespace mci_main.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
 
-            modelBuilder.Entity("mci_main.Models.Practitioner", b =>
+            modelBuilder.Entity("mci_main.Data.Practitioner", b =>
                 {
                     b.Property<int>("MciIdx")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace mci_main.Migrations
                     b.ToTable("Practitioner");
                 });
 
-            modelBuilder.Entity("mci_main.Models.PractitionerSpecialty", b =>
+            modelBuilder.Entity("mci_main.Data.PractitionerSpecialty", b =>
                 {
                     b.Property<int>("MciIdx")
                         .ValueGeneratedOnAdd()
@@ -80,7 +80,44 @@ namespace mci_main.Migrations
                     b.ToTable("PractitionerSpecialty");
                 });
 
-            modelBuilder.Entity("mci_main.Models.Specialty", b =>
+            modelBuilder.Entity("mci_main.Data.Review", b =>
+                {
+                    b.Property<int>("MciIdx")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DateCreated")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<DateTime>("DateVisited")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("PracIdx")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ReviewerName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("MciIdx");
+
+                    b.HasIndex("PracIdx");
+
+                    b.ToTable("Review");
+                });
+
+            modelBuilder.Entity("mci_main.Data.Specialty", b =>
                 {
                     b.Property<int>("MciIdx")
                         .ValueGeneratedOnAdd()
@@ -109,15 +146,15 @@ namespace mci_main.Migrations
                     b.ToTable("Specialty");
                 });
 
-            modelBuilder.Entity("mci_main.Models.PractitionerSpecialty", b =>
+            modelBuilder.Entity("mci_main.Data.PractitionerSpecialty", b =>
                 {
-                    b.HasOne("mci_main.Models.Practitioner", "Practitioner")
+                    b.HasOne("mci_main.Data.Practitioner", "Practitioner")
                         .WithMany("PractitionerSpecialties")
                         .HasForeignKey("PracIdx")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("mci_main.Models.Specialty", "Specialty")
+                    b.HasOne("mci_main.Data.Specialty", "Specialty")
                         .WithMany("PractitionerSpecialties")
                         .HasForeignKey("SpecIdx")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -128,12 +165,25 @@ namespace mci_main.Migrations
                     b.Navigation("Specialty");
                 });
 
-            modelBuilder.Entity("mci_main.Models.Practitioner", b =>
+            modelBuilder.Entity("mci_main.Data.Review", b =>
                 {
-                    b.Navigation("PractitionerSpecialties");
+                    b.HasOne("mci_main.Data.Practitioner", "Practitioner")
+                        .WithMany("Reviews")
+                        .HasForeignKey("PracIdx")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Practitioner");
                 });
 
-            modelBuilder.Entity("mci_main.Models.Specialty", b =>
+            modelBuilder.Entity("mci_main.Data.Practitioner", b =>
+                {
+                    b.Navigation("PractitionerSpecialties");
+
+                    b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("mci_main.Data.Specialty", b =>
                 {
                     b.Navigation("PractitionerSpecialties");
                 });

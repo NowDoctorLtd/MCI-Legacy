@@ -11,4 +11,6 @@
 <p>DOB: @Model.DOB</p>
 <p>About: @Model.Bio</p>
 
+<a asp-action="AddReviewForm" asp-route-id="@Model.MciIdx">Add Review</a> |
+<a asp-action="GetAllReviews" asp-route-id="@Model.MciIdx">See All Reviews</a>
 

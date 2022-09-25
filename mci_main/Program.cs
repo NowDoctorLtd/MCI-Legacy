@@ -15,6 +15,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<ISearchRepository, SearchRepository>();
 builder.Services.AddTransient<IPractitionerRepository, PractitionerRepository>();
+builder.Services.AddTransient<IReviewRepository, ReviewRepository>();
 
 // END builder, create the webapp instance...
 var app = builder.Build();

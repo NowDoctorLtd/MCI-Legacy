@@ -1,0 +1,16 @@
+﻿@model List<mci_main.Data.Review>
+
+@{
+    ViewData["Title"] = "View Review";
+}
+
+<h1>Practitioner Reviews</h1>
+@foreach(var review in Model)
+{ 
+<p>@review.Title</p>
+<p>@review.Comment</p>
+<p>Review by: @review.ReviewerName</p>
+<p>Date of Visit: @review.DateVisited</p>
+}
+
+

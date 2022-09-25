@@ -16,8 +16,9 @@ namespace mci_main.Repository.Implementation
 
         public Practitioner GetPractitioner(int mciIdx)
         {
-            return _mciContext.Practitioner.Include("PractitionerSpecialties.Specialty")
+            var practitioner =  _mciContext.Practitioner.Include("PractitionerSpecialties.Specialty")
                 .Where(x => x.MciIdx.Equals(mciIdx)).First();
+            return practitioner;
         }
 
         public PractitionerViewModel GetPractitionerView(Practitioner practitioner)

@@ -7,6 +7,7 @@
 ******************************/
 using Microsoft.EntityFrameworkCore;
 using mci_main.Data;
+using Microsoft.Extensions.Hosting;
 
 public class MciContext : DbContext
 {
@@ -18,6 +19,7 @@ public class MciContext : DbContext
     public DbSet<Practitioner> Practitioner { get; set; } = default!;
     public DbSet<Specialty> Specialty { get; set; } = default!;
     public virtual List<PractitionerSpecialty> PractitionerSpecialties { get; set; } = default!;
+    public DbSet<Review> Review { get; set; } = default!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -33,6 +35,10 @@ public class MciContext : DbContext
             .HasForeignKey(ps => ps.SpecIdx)
             .OnDelete(DeleteBehavior.Cascade);
 
+        modelBuilder.Entity<Review>()
+            .HasOne(p => p.Practitioner)
+            .WithMany(b => b.Reviews);
+
         // Which models will have the date created ts?
         modelBuilder.Entity<Practitioner>()
             .Property(b => b.DateCreated)
@@ -42,5 +48,8 @@ public class MciContext : DbContext
             .Property(b => b.DateCreated)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
+        modelBuilder.Entity<Review>()
+            .Property(b => b.DateCreated)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
     }
 }

@@ -1,4 +1,9 @@
-﻿using mci_main.Models;
+﻿/******************************
+* MCI Search Repository 
+* Author: Mark Brown
+* Authored: 16/09/2022
+******************************/
+using mci_main.Models;
 using mci_main.Helpers;
 using Microsoft.EntityFrameworkCore;
 

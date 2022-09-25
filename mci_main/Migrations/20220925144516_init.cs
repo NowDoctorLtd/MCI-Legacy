@@ -44,6 +44,30 @@ namespace mci_main.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Review",
+                columns: table => new
+                {
+                    MciIdx = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PracIdx = table.Column<int>(type: "INTEGER", nullable: false),
+                    Title = table.Column<string>(type: "TEXT", nullable: false),
+                    Comment = table.Column<string>(type: "TEXT", nullable: false),
+                    ReviewerName = table.Column<string>(type: "TEXT", nullable: false),
+                    DateVisited = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Review", x => x.MciIdx);
+                    table.ForeignKey(
+                        name: "FK_Review_Practitioner_PracIdx",
+                        column: x => x.PracIdx,
+                        principalTable: "Practitioner",
+                        principalColumn: "MciIdx",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PractitionerSpecialty",
                 columns: table => new
                 {
@@ -79,6 +103,11 @@ namespace mci_main.Migrations
                 name: "IX_PractitionerSpecialty_SpecIdx",
                 table: "PractitionerSpecialty",
                 column: "SpecIdx");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Review_PracIdx",
+                table: "Review",
+                column: "PracIdx");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -87,10 +116,13 @@ namespace mci_main.Migrations
                 name: "PractitionerSpecialty");
 
             migrationBuilder.DropTable(
-                name: "Practitioner");
+                name: "Review");
 
             migrationBuilder.DropTable(
                 name: "Specialty");
+
+            migrationBuilder.DropTable(
+                name: "Practitioner");
         }
     }
 }
