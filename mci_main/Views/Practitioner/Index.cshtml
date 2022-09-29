@@ -1,16 +1,41 @@
 ﻿@model mci_main.Models.View.PractitionerViewModel
 
 @{
-    ViewData["Title"] = "Details for ???";
+    ViewData["Title"] = "Details for " + Model.Title + " " + Model.Name;
 }
 
 <h1>Practitioner Details</h1>
-<p>@Model.Title @Model.Name</p>
-<p>Location: @Model.Location</p>
-<p>Specialties: @Model.SpecialtiesStr</p>
-<p>DOB: @Model.DOB</p>
-<p>About: @Model.Bio</p>
 
-<a asp-action="AddReviewForm" asp-route-id="@Model.MciIdx">Add Review</a> |
-<a asp-action="GetAllReviews" asp-route-id="@Model.MciIdx">See All Reviews</a>
+<div id="pracDetails">
+    <p>@Model.Title @Model.Name</p>
+    <p>Location: @Model.Location</p>
+    <p>Specialties: @Model.SpecialtiesStr</p>
+    <p>DOB: @Model.DOB</p>
+    <p>About: @Model.Bio</p>
+</div>
+
+<h2>Latest Reviews</h2>
+<div id="pracReviewSummary">
+@if (Model.ReviewsInBrief != null && Model.ReviewsInBrief.Any())
+    {
+    @foreach (var reviewSummary in Model.ReviewsInBrief)
+    { 
+       IDictionary<string, string> routeData = new Dictionary<string, string>();
+       routeData.Add("Id", Model.MciIdx.ToString());
+       routeData.Add("reviewId", reviewSummary.Key.ToString());
+
+    <p><a asp-action="GetReview" asp-route-id="@reviewSummary.Key" asp-all-route-data="routeData">@reviewSummary.Value</a>.</p>
+    }
+}
+else
+{
+    <p>No reviews yet. <a asp-action="AddReviewForm" asp-route-id="@Model.MciIdx">Add the first review</a>.</p>
+}
+
+</div>
+
+<div class="action-section">
+    <a asp-action="AddReviewForm" asp-route-id="@Model.MciIdx">Add Review</a> |
+    <a asp-action="GetAllReviews" asp-route-id="@Model.MciIdx">See All Reviews</a>
+</div>
 

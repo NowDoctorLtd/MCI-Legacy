@@ -10,5 +10,6 @@ public class PractitionerViewModel {
         public string Location { get; set; }
         public string Bio { get; set; }
         public DateTime DOB { get; set; }
+        public Dictionary<int, string> ReviewsInBrief { get; set; }
 
 }

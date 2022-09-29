@@ -52,8 +52,23 @@ namespace mci_main.Helpers
                 Title = dbPrac.Title,
                 Location = dbPrac.Location,
                 SpecialtiesStr = specialtiesStr,
-                Bio = dbPrac.Bio
+                Bio = dbPrac.Bio,
+                ReviewsInBrief = GetReviewsInBrief(dbPrac)
             };
+        }
+
+        public static Dictionary<int, string> GetReviewsInBrief(Practitioner practitioner) 
+        {
+            Dictionary<int, string> reviewsInBrief;
+            if (practitioner.Reviews != null && practitioner.Reviews.Any())
+            {
+                reviewsInBrief = practitioner.Reviews.ToDictionary(x => x.MciIdx, x => x.Title);
+            }
+            else
+            { 
+                reviewsInBrief = new Dictionary<int, string>();
+            }
+            return reviewsInBrief;
         }
 
         public static List<PractitionerViewModel> DbListToViewList(List<Practitioner> dbPracs)

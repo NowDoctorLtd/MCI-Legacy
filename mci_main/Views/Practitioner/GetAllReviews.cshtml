@@ -4,13 +4,22 @@
     ViewData["Title"] = "View Review";
 }
 
-<h1>Practitioner Reviews</h1>
-@foreach(var review in Model)
-{ 
-<p>@review.Title</p>
-<p>@review.Comment</p>
-<p>Review by: @review.ReviewerName</p>
-<p>Date of Visit: @review.DateVisited</p>
-}
+<div id="mainHeader">
+    <h1>Practitioner Reviews</h1>
+</div>
 
+<div class="list-body">
+    @foreach(var review in Model)
+    { 
+    <div class="review-item">
+        <p class="review-item-title">@review.Title</p>
+        <p>@review.Comment</p>
+        <p>Review by: @review.ReviewerName</p>
+        <p>Date of Visit: @review.DateVisited</p>
+    </div>
+    }
+</div>
 
+<div class="action-section">
+    <a asp-controller="practitioner" asp-action="Index" asp-route-id="@Model[0].PracIdx">Back</a>
+</div>

@@ -17,8 +17,11 @@ namespace mci_main.Models
 
         public ReviewFormModel(int pracIdx)
         {
-            this.PracIdx = pracIdx; 
+            this.PracIdx = pracIdx;
+            this.DateVisited = DateTime.Now;
         }
+
+        public ReviewFormModel() { }
     }
 }
 

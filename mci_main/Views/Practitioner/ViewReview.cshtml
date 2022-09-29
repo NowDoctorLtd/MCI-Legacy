@@ -1,4 +1,4 @@
-﻿@model mci_main.Data.Review
+﻿@model mci_main.Models.ReviewFormModel
 
 @{
     ViewData["Title"] = "View Review";
@@ -9,5 +9,9 @@
 <p>@Model.Comment</p>
 <p>Review by: @Model.ReviewerName</p>
 <p>Date of Visit: @Model.DateVisited</p>
+
+<div class="action-section">
+    <a asp-controller="practitioner" asp-action="Index" asp-route-id="@Model.PracIdx">Back</a>
+</div>
 
 

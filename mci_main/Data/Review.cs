@@ -22,9 +22,15 @@ namespace mci_main.Data
         [Required]
         public string ReviewerName { get; set; }
         [Required]
+        [DataType(DataType.Date)]
         public DateTime DateVisited { get; set; }
 
         // Todo: List of adjectives
+
+        public Review()
+        {
+            this.DateVisited = DateTime.Now; 
+        }
 
     }
 }

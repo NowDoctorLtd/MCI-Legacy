@@ -14,15 +14,17 @@ namespace mci_main.Repository.Implementation
             _mciContext = mciContext;
         }
 
+        // TODO include reviews only if necessary
         public Practitioner GetPractitioner(int mciIdx)
         {
-            var practitioner =  _mciContext.Practitioner.Include("PractitionerSpecialties.Specialty")
+            var practitioner =  _mciContext.Practitioner.Include("PractitionerSpecialties.Specialty").Include("Reviews")
                 .Where(x => x.MciIdx.Equals(mciIdx)).First();
             return practitioner;
         }
 
         public PractitionerViewModel GetPractitionerView(Practitioner practitioner)
         {
+            var newPracViewModel = PractitionerHelper.DbModelToViewModel(practitioner);
             return PractitionerHelper.DbModelToViewModel(practitioner);
         }
     }

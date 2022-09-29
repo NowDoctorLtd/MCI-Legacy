@@ -1,4 +1,5 @@
 ﻿using mci_main.Data;
+using mci_main.Models;
 namespace mci_main.Repository
 {
     public interface IReviewRepository
@@ -6,6 +7,7 @@ namespace mci_main.Repository
         public Review GetReview(int MciIdx);
         public Task CreateReview(Review newReview);
 		public List<Review> GetAllPractitionerReviews(Practitioner practitioner);
+        public Task CreateReviewFromFormModel(ReviewFormModel formModel);
     }
 }
 

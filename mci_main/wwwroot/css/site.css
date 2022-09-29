@@ -17,6 +17,8 @@ body {
   margin-bottom: 60px;
 }
 
+/* Global Header */
+
 nav#mciNavBar {
     background-color: #e3f2fd;
     font-weight: 400;
@@ -24,4 +26,47 @@ nav#mciNavBar {
 
 a#mciName {
     font-weight: bold;
+}
+
+/* Reusable Components */
+
+div#mainHeader {
+    padding-bottom: 10px;
+}
+
+div.action-section {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 0px;
+    width: 100%;
+    background-color: #feffcb;
+    border-radius: 15px;
+}
+
+.action-section a, .action-section a:visited {
+    text-decoration-line: none;
+}
+
+div.list-body {
+    padding-bottom: 10px;
+}
+
+/* Practitioner Views */
+
+div.review-item {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+p.review-item-title {
+    font-weight:bold;
+    text-decoration-line: underline;
+}
+
+div#pracDetails {
+
+}
+
+div#pracReviewSummary {
+
 }

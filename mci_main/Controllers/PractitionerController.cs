@@ -6,6 +6,7 @@
 using mci_main.Data;
 using mci_main.Models;
 using mci_main.Repository;
+using mci_main.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -49,7 +50,7 @@ namespace mci_main.Controllers
 
         [HttpPost]
         [Route("practitioner/{id:int}/review")]
-        public IActionResult SubmitReview(int id, [Bind("PracIdx,Title,Comment,ReviewerName,DateVisited")] Review review)
+        public IActionResult SubmitReview(int id, [Bind("PracIdx,Title,Comment,ReviewerName,DateVisited")] ReviewFormModel review)
         {
             review.PracIdx = id;
             // todo: will prob need to convert ReviewFormModel into Db review class
@@ -58,14 +59,18 @@ namespace mci_main.Controllers
             {
                 try
                 {
-                    _reviewRepository.CreateReview(review);
+                    _reviewRepository.CreateReviewFromFormModel(review);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(review);
+            else
+            {
+                return StatusCode(500); 
+            }
+            return View("ViewReview", review);
         }
 
         /* Get a specific review associated with a prac */
@@ -76,7 +81,7 @@ namespace mci_main.Controllers
             var review = _reviewRepository.GetReview(reviewId);
             if (review != null && review.PracIdx.Equals(id))
             {
-                return View(review);
+                return View("ViewReview", ReviewHelper.DbReviewToViewModel(review));
             }
             else
             {
@@ -91,6 +96,7 @@ namespace mci_main.Controllers
         {
             var practitioner = _practitionerRepository.GetPractitioner(id);
             var reviews = _reviewRepository.GetAllPractitionerReviews(practitioner);
+            // Todo - reveiw list model?? or some way to get prac details
             return View(reviews);
         }
     }
