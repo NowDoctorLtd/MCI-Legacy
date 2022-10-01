@@ -95,8 +95,13 @@ namespace mci_main.Controllers
         public IActionResult GetAllReviews(int id)
         {
             var practitioner = _practitionerRepository.GetPractitioner(id);
+            if (practitioner == null)
+            {
+                return NotFound(); 
+            }
             var reviews = _reviewRepository.GetAllPractitionerReviews(practitioner);
             // Todo - reveiw list model?? or some way to get prac details
+            ViewData["id"] = id;
             return View(reviews);
         }
     }
