@@ -26,6 +26,7 @@ nav#mciNavBar {
 
 a#mciName {
     font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Reusable Components */

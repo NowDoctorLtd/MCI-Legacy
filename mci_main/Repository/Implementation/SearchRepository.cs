@@ -50,6 +50,18 @@ namespace mci_main.Repository
 
             return results;
         }
+
+        public SearchResultsLite SearchLite(string query)
+        {
+            List<string> matches;
+            query = query.ToLower();
+            
+            // Match lower case, return top 15 (TODO: limit after order by applied)
+            matches = _mciContext.Specialty.Take(15)
+                .Where(x => x.Title.ToLower().StartsWith(query)).Select(x => x.Title).ToList();
+
+            return new SearchResultsLite() { Specialties = matches };
+        }
     }
 }
 
