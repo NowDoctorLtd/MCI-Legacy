@@ -6,9 +6,9 @@
     <h1 class="display-4">Welcome</h1>
     <div class="search_body">
         <p>Let's get a search in here...</p>
-        <form asp-controller="search" asp-action="Index" method="post">
+        <form id="mainSearchForm" asp-controller="search" asp-action="Index" method="post">
             <p>
-                <input type="text" name="query" autocomplete="off"/>
+                <input id="mainSearch" type="text" name="query" autocomplete="off"/>
                 <input type="submit" value="FIND IT NOW" />
             </p>
         </form>

@@ -6,6 +6,9 @@
     <title>@ViewData["Title"] - nowDoctor</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/jquery-ui.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/jquery-ui.structure.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/jquery-ui.theme.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/mci_main.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -50,6 +53,8 @@
     <script src="~/js/contrib/backbone-full-1.4.1.js"></script>
     <script src="~/js/contrib/jquery-ui.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- TODO: Make this a script block and only load home when we are viewing home -->
+    <script src="~/js/home.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

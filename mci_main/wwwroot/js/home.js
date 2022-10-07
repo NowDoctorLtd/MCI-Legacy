@@ -1,16 +1,29 @@
 ﻿// ghastly.js
+
 $(document).ready(function () {
     var topResult = null;
 
+    var doAutocomplete = function (request, response) {
+        $.ajax({
+            type: "GET",
+            url: "/search/lite?query=" + request["term"],
+            success: function (data) { 
+                console.log("data:" + JSON.stringify(data));
+                response(data['specialties']); 
+            },
+            error: function () { response({"specialities": []})}
+        }); 
+     };
+
     $("#mainSearch").autocomplete({
-        minLength: 3,
-        delay: 500,
-        source: sampleSearchCollection.toJSON(),
+        minLength: 2,
+//        delay: 300,
+        source: doAutocomplete,
         select: function (event, selection) {
             console.log("Selection made. " + JSON.stringify(selection));
-            renderResult(selection.item.value);
-            // Clear or keep result??
-            console.log(this);
+            console.log(selection.item.value);
+            $("#mainSearch").val(selection.item.value);
+            $("#mainSearchForm").submit();
         },
         close: function (e) {
             $(this).val("");
@@ -26,12 +39,18 @@ $(document).ready(function () {
 
     // when press return (kc 13) search for topmost value (wip)
     $("#mainSearch").on('keypress', function (e) {
-        if (e.keyCode == 13) {
+        if (e.which == 13) {
             event.preventDefault();
             if (topResult != null) {
-                renderResult(topResult);
+                console.log(topResult);
+                $("#mainSearch").val(topResult);
+                $("#mainSearchForm").submit();
             }
             $(this).autocomplete("close");
+        } else if (e.which == 8) {
+            // FIXME: should clear top result and not nav when enter is struck after clearing
+
+            topResult = null;
         }
     });
 
