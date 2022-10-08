@@ -104,6 +104,16 @@ namespace mci_main.Controllers
             ViewData["id"] = id;
             return View(reviews);
         }
+
+        /* Get review adjectives (AJAX), bias towards the prac ID */
+        [HttpGet]
+        [Route("getadjectives/{id:int}")]
+        public async Task<IActionResult> GetReviewAdjectives(int id)
+        {
+            return Json(
+                new ReviewAdjectives() { Adjectives = await _reviewRepository.MockGetAdjectives(id) }
+                );
+        }
     }
 }
 

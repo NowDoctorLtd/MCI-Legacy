@@ -3,12 +3,27 @@
 * Author: Mark Brown
 * Authored: 25/09/2022
 ******************************/
+using System.ComponentModel.DataAnnotations;
+
 namespace mci_main.Data
 {
     public class Adjective : MciBase
     {
-        string Name { get; set; }
-        int Rank { get; set; }
+        [Required]
+        public string Name { get; set; }
+        public int Rank { get; set; }
+
+        /* WARNING: Temporary constructor, not for Db use! */
+        public Adjective (string name, int rank = 0)
+        {
+            this.Name = name;
+            this.MciIdx = -1;
+            this.Rank = rank;
+            this.DateCreated = DateTime.Now;
+        }
+
+        public Adjective() { }
     }
+
 }
 

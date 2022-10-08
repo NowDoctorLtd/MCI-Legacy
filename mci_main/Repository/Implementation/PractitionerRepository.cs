@@ -14,7 +14,7 @@ namespace mci_main.Repository.Implementation
             _mciContext = mciContext;
         }
 
-        // TODO include reviews only if necessary
+        // TODO Split - Lite View with details only for result, full view including reviews for profile pages
         public Practitioner GetPractitioner(int mciIdx)
         {
             var practitioner =  _mciContext.Practitioner.Include("PractitionerSpecialties.Specialty").Include("Reviews")

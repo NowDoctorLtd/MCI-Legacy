@@ -53,6 +53,26 @@ namespace mci_main.Repository.Implementation
 			};
 			await this.CreateReview(newReview);
         }
+
+		/* Get all adjectives associated with the practitioner/specialty...
+			to be implemented. Currently just get all adjectives */
+		public async Task<List<Adjective>> MockGetAdjectives(int practitonerId)
+		{
+			// No DB either!
+			var adjList = new List<Adjective>()
+			{
+				new Adjective("Fast"),
+				new Adjective("Knowledgable"),
+				new Adjective("Empathetic"),
+				new Adjective("Patient"),
+				new Adjective("Proactive"),
+				new Adjective("Efficient"),
+				new Adjective("Caring"),
+				new Adjective("Grumbly"),
+				new Adjective() {Name = "TryThis"}
+			};
+			return adjList;
+        }
 	}
 }
 
