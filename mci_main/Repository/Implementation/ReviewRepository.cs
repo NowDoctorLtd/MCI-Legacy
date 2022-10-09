@@ -56,7 +56,7 @@ namespace mci_main.Repository.Implementation
 
 		/* Get all adjectives associated with the practitioner/specialty...
 			to be implemented. Currently just get all adjectives */
-		public async Task<List<Adjective>> MockGetAdjectives(int practitonerId)
+		public List<Adjective> MockGetAdjectives(int practitonerId)
 		{
 			// No DB either!
 			var adjList = new List<Adjective>()

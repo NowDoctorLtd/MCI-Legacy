@@ -21,6 +21,7 @@ namespace mci_main.Data
         public string Bio { get; set; }
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
+        public string? Img { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; }
     }

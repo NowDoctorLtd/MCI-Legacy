@@ -53,7 +53,8 @@ namespace mci_main.Helpers
                 Location = dbPrac.Location,
                 SpecialtiesStr = specialtiesStr,
                 Bio = dbPrac.Bio,
-                ReviewsInBrief = GetReviewsInBrief(dbPrac)
+                ReviewsInBrief = GetReviewsInBrief(dbPrac),
+                Img = dbPrac.Img
             };
         }
 

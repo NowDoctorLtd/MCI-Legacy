@@ -11,5 +11,7 @@ public class PractitionerViewModel {
         public string Bio { get; set; }
         public DateTime DOB { get; set; }
         public Dictionary<int, string> ReviewsInBrief { get; set; }
+        public string Img { get; set; }
+        public List<string> Adjectives { get; set; }
 
 }

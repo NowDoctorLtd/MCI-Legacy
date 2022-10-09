@@ -1,48 +1,62 @@
 ﻿@model mci_main.Models.View.PractitionerViewModel
 
 @{
+    string imgPath;
     ViewData["Title"] = "Details for " + Model.Title + " " + Model.Name;
+    imgPath = string.IsNullOrEmpty(Model.Img) ? "drwho.jpg" : Model.Img;
 }
 
 <h1>Practitioner Details</h1>
 
-<div id="pracDetails">
-    <p>@Model.Title @Model.Name</p>
-    <p>Location: @Model.Location</p>
-    <p>Specialties: @Model.SpecialtiesStr</p>
-    <p>DOB: @Model.DOB</p>
-    <p>About: @Model.Bio</p>
+<div id="pracDetailsWrapper">
+    <div id="pracImgWrap">
+        <img id="pracImg" src="~/img/@imgPath" alt="doctor... who?" title="@Model.Name" />
+    </div>
+
+    <div id="pracDetails">
+        <p id="pracName">@Model.Title @Model.Name</p>
+        <p><b>Location:</b> @Model.Location</p>
+        <p><b>Specialties:</b> @Model.SpecialtiesStr</p>
+        <p><b>DOB:</b> @Model.DOB</p>
+        <p><b>About:</b><br> @Model.Bio</p>
+    </div>
 </div>
 
-<div id="pracPhoto">
+<div id="reviewSection">
+    <h2>Characterised as</h2>
+    <div id="prachChar">
+        @if (Model.Adjectives != null && Model.Adjectives.Count > 0)
+         {
+        <p>@foreach (var adj in Model.Adjectives)
+            { 
+                @Html.Raw(adj); 
+                if (adj != Model.Adjectives.Last()) {@Html.Raw(", ") }
+         }</p>
+         } else { 
+           <p>No reviews yet! Be the first?</p> 
+         }
+    </div>
 
-</div>
+    <h2>Latest Reviews</h2>
+    <div id="pracReviewSummary">
+    @if (Model.ReviewsInBrief != null && Model.ReviewsInBrief.Any())
+        {
+        @foreach (var reviewSummary in Model.ReviewsInBrief)
+        { 
+           IDictionary<string, string> routeData = new Dictionary<string, string>();
+           routeData.Add("Id", Model.MciIdx.ToString());
+           routeData.Add("reviewId", reviewSummary.Key.ToString());
 
-<h2>Characterised as</h2>
-<div id="prachChar">
-<p>Todo: Top Adjectives Here.</p>
-</div>
-
-<h2>Latest Reviews</h2>
-<div id="pracReviewSummary">
-@if (Model.ReviewsInBrief != null && Model.ReviewsInBrief.Any())
-    {
-    @foreach (var reviewSummary in Model.ReviewsInBrief)
-    { 
-       IDictionary<string, string> routeData = new Dictionary<string, string>();
-       routeData.Add("Id", Model.MciIdx.ToString());
-       routeData.Add("reviewId", reviewSummary.Key.ToString());
-
-    <p><a asp-action="GetReview" asp-route-id="@reviewSummary.Key" asp-all-route-data="routeData">@reviewSummary.Value</a>.</p>
+        <p><a asp-action="GetReview" asp-route-id="@reviewSummary.Key" asp-all-route-data="routeData">@reviewSummary.Value</a>.</p>
+        }
     }
-}
-else
-{
-    <p>No reviews yet. <a asp-action="AddReviewForm" asp-route-id="@Model.MciIdx">Add the first review</a>.</p>
-}
+    else
+    {
+        <p>No reviews yet. <a asp-action="AddReviewForm" asp-route-id="@Model.MciIdx">Add the first review</a>.</p>
+    }
 
+    </div>
 </div>
-
 <div class="action-section">
     <a asp-action="AddReviewForm" asp-route-id="@Model.MciIdx">Add Review</a> |
     <a asp-action="GetAllReviews" asp-route-id="@Model.MciIdx">See All Reviews</a>

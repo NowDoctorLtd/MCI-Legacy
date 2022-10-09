@@ -1,20 +1,20 @@
 ﻿html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 /* Global Header */
@@ -54,20 +54,42 @@ div.list-body {
 
 /* Practitioner Views */
 
+div#pracDetailsWrapper {
+    min-height: 320px;
+}
+
+p#pracName {
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+div#pracImgWrap {
+    display: inline;
+}
+
+img#pracImg {
+    float:left;
+    max-height: 320px;
+}
+
+div#pracDetails {
+    margin-left: 20px;
+    display: inline-block;
+}
+
+div#pracReviewSummary {
+}
+
 div.review-item {
     border-bottom: 1px solid black;
     padding-bottom: 10px;
 }
 
 p.review-item-title {
-    font-weight:bold;
+    font-weight: bold;
     text-decoration-line: underline;
 }
 
-div#pracDetails {
-
-}
-
-div#pracReviewSummary {
+div#pracReviewSection {
 
 }

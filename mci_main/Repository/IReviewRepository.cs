@@ -10,7 +10,7 @@ namespace mci_main.Repository
         public Task CreateReviewFromFormModel(ReviewFormModel formModel);
 
         // Mock Methods, DO NOT use live!
-        public Task<List<Adjective>> MockGetAdjectives(int practitonerId);
+        public List<Adjective> MockGetAdjectives(int practitonerId);
     }
 }
 

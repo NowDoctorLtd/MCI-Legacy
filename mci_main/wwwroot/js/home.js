@@ -16,8 +16,8 @@ $(document).ready(function () {
      };
 
     $("#mainSearch").autocomplete({
-        minLength: 2,
-        delay: 300,
+        minLength: 1,
+        delay: 100,
         source: doAutocomplete,
         select: function (event, selection) {
             console.log("Selection made. " + JSON.stringify(selection));

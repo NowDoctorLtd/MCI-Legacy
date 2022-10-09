@@ -110,9 +110,7 @@ namespace mci_main.Controllers
         [Route("getadjectives/{id:int}")]
         public async Task<IActionResult> GetReviewAdjectives(int id)
         {
-            return Json(
-                new ReviewAdjectives() { Adjectives = await _reviewRepository.MockGetAdjectives(id) }
-                );
+            return Json( new ReviewAdjectives() { Adjectives = _reviewRepository.MockGetAdjectives(id) } );
         }
     }
 }
