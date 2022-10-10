@@ -93,3 +93,18 @@ p.review-item-title {
 div#pracReviewSection {
 
 }
+
+/* Home  - TODO breakout! */
+
+input#mainSearchBox {
+    max-width: 450px;
+    height: 3em;
+    font-size: 1.0em;
+    border-radius: 10px;
+    width: 100%;
+}
+
+input#mainSearchButton {
+    height: 3em;
+    border-radius: 10px;
+}

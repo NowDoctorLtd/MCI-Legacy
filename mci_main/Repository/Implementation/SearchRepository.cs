@@ -62,6 +62,20 @@ namespace mci_main.Repository
 
             return new SearchResultsLite() { Specialties = matches };
         }
+
+        // Temporary method, will cache from DB in future to all with at least one prac
+        public string GetQueryExamples()
+        {
+            var rand = new Random();
+            List<string> practitionerTitles = new List<string> {
+                "Cardiologist", "Psychiatrist", "Paeditrician", "Psychologist",
+                "Orthopaedic surgeon", "Pharmacist", "Dermatologist", "Obstetrician",
+                "Gynaecologist", "Otologist", "Uriologist"
+            };
+            // Random select
+            var egTitles = practitionerTitles.OrderBy(x => rand.Next()).Take(3).ToArray();
+            return $"a {egTitles[0]}, a {egTitles[1]} or a {egTitles[2]}";
+        }
     }
 }
 

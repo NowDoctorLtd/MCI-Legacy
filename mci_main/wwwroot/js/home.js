@@ -15,14 +15,14 @@ $(document).ready(function () {
         }); 
      };
 
-    $("#mainSearch").autocomplete({
+    $("#mainSearchBox").autocomplete({
         minLength: 1,
         delay: 100,
         source: doAutocomplete,
         select: function (event, selection) {
             console.log("Selection made. " + JSON.stringify(selection));
             console.log(selection.item.value);
-            $("#mainSearch").val(selection.item.value);
+            $("#mainSearchBox").val(selection.item.value);
             $("#mainSearchForm").submit();
         },
         close: function (e) {
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
 
     // when press return (kc 13) search for topmost value (wip)
-    $("#mainSearch").on('keypress', function (e) {
+    $("#mainSearchBox").on('keypress', function (e) {
         if (e.which == 13) {
             event.preventDefault();
             if (topResult != null) {

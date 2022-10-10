@@ -10,20 +10,24 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using mci_main.Models;
 using System.Text.Encodings.Web;
+using mci_main.Repository;
 
 namespace mci_main.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly ISearchRepository _searchRepository;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, ISearchRepository search)
     {
         _logger = logger;
+        _searchRepository = search;
     }
 
     public IActionResult Index()
     {
+        ViewData["QueryExamples"] = _searchRepository.GetQueryExamples();
         return View();
     }
 

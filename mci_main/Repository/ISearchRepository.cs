@@ -7,6 +7,7 @@ namespace mci_main.Repository
     {
         public SearchResults Search(string query);
         public SearchResultsLite SearchLite(string query);
+        public string GetQueryExamples();
     }
 }
 

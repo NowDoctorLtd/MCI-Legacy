@@ -9,11 +9,11 @@
         <p>Let's get a search in here...</p>
         <form id="mainSearchForm" asp-controller="search" asp-action="Index" method="post">
             <p>
-                <input id="mainSearch" type="text" name="query" autocomplete="off"/>
-                <input type="submit" value="FIND IT NOW" />
+                <input placeholder="Search for @ViewData["QueryExamples"]..." id="mainSearchBox" type="text" name="query" autocomplete="off"/>
+                <input id="mainSearchButton" type="submit" value="FIND IT NOW" />
             </p>
         </form>
-        <p>Search by name, specialty or (coming soon) ailment.</p>
+        <p>Need help? Todo: help</p>
     </div>
 </div>
 

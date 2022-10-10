@@ -16,6 +16,12 @@ var adjCollectionCtr = Backbone.Collection.extend({
 
 var adjs = new adjCollectionCtr();
 
+var renderListItem = function (itm) {
+    if (!itm) { console.log("no itm"); return ""; }
+    var html = '<li>' + itm['name'] + '</li>';
+    return html;
+};
+
 var adjViewCtr = Backbone.View.extend({
     el: "#adjList",
     tagName: 'li',
@@ -24,6 +30,11 @@ var adjViewCtr = Backbone.View.extend({
     initialize: function () {
         this.render();
     },
+    template: renderListItem,
+    render: function () {
+        this.$el.html(this.template(this.model.attributes));
+        return this;
+    }
 
 });
 
@@ -41,10 +52,5 @@ adjs.fetch().then(function () {
     adjList.render();
 });
 
-var renderListItem = function (itm) {
-    var html = '<li>' + itm.get('name') + '</li>';
-    this.$el.html(html);
-    return this;
-};
 
 console.log("done");
