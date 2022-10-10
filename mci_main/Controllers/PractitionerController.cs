@@ -107,7 +107,7 @@ namespace mci_main.Controllers
 
         /* Get review adjectives (AJAX), bias towards the prac ID */
         [HttpGet]
-        [Route("getadjectives/{id:int}")]
+        [Route("api/adjectives/{id:int}")]
         public async Task<IActionResult> GetReviewAdjectives(int id)
         {
             return Json( new ReviewAdjectives() { Adjectives = _reviewRepository.MockGetAdjectives(id) } );

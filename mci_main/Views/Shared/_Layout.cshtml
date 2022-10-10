@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - nowDoctor</title>
+    <title>nowDoctor @ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/jquery-ui.min.css" asp-append-version="true" />
@@ -49,12 +49,15 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/contrib/underscore-umd.js"></script>
-    <script src="~/js/contrib/backbone-full-1.4.1.js"></script>
+    <script src="~/js/contrib/underscore-umd.js" defer></script>
+    <script src="~/js/contrib/backbone-full-1.4.1.js" defer></script>
     <script src="~/js/contrib/jquery-ui.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <!-- TODO: Make this a script block and only load home when we are viewing home -->
-    <script src="~/js/home.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true" defer></script>
+    @if (ViewData["scripts"] != null)
+        {
+            // TODO: Work with many scripts....
+        <script src = @Href("~/js/" + ViewData["scripts"]) asp-append-version="true" defer></script>
+    }
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

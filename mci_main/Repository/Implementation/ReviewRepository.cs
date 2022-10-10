@@ -61,15 +61,15 @@ namespace mci_main.Repository.Implementation
 			// No DB either!
 			var adjList = new List<Adjective>()
 			{
-				new Adjective("Fast"),
-				new Adjective("Knowledgable"),
-				new Adjective("Empathetic"),
-				new Adjective("Patient"),
-				new Adjective("Proactive"),
-				new Adjective("Efficient"),
-				new Adjective("Caring"),
-				new Adjective("Grumbly"),
-				new Adjective() {Name = "TryThis"}
+				new Adjective("Fast", 0),
+				new Adjective("Knowledgable", 1),
+				new Adjective("Empathetic", 2),
+				new Adjective("Patient", 3),
+				new Adjective("Proactive", 4),
+				new Adjective("Efficient", 5),
+				new Adjective("Caring", 6),
+				new Adjective("Grumbly", 7),
+				new Adjective() {Name = "Does His Best", MciIdx = 8}
 			};
 			return adjList;
         }

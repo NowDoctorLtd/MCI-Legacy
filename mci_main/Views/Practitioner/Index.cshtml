@@ -4,6 +4,7 @@
     string imgPath;
     ViewData["Title"] = "Details for " + Model.Title + " " + Model.Name;
     imgPath = string.IsNullOrEmpty(Model.Img) ? "drwho.jpg" : Model.Img;
+    ViewData["scripts"] = "practitioner.js";
 }
 
 <h1>Practitioner Details</h1>

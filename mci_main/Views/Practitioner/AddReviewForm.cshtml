@@ -4,6 +4,7 @@
     ViewData["Title"] = "Add Review";
     IDictionary<string, string> routeData = new Dictionary<string, string>();
     routeData.Add("Id", Model.PracIdx.ToString());
+    ViewData["scripts"] = "review.js";
 }
 
 <h1>Add Review for @Model.PracIdx</h1>
@@ -29,6 +30,7 @@
 
                 <div class="form-group">
                     <label class="control-label">Describe the practitioner using any of these words</label>
+                    <ul id="#adjList">Loading..</ul>
                     <p>To Be Implemented</p>
                     <span class="text-danger"></span>
                 </div>

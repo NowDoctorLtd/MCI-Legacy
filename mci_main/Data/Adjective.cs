@@ -14,12 +14,13 @@ namespace mci_main.Data
         public int Rank { get; set; }
 
         /* WARNING: Temporary constructor, not for Db use! */
-        public Adjective (string name, int rank = 0)
+        public Adjective (string name, int mciIdx = -2, int rank = 0)
         {
             this.Name = name;
             this.MciIdx = -1;
             this.Rank = rank;
             this.DateCreated = DateTime.Now;
+            this.MciIdx = mciIdx;
         }
 
         public Adjective() { }
