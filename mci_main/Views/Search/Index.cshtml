@@ -26,7 +26,10 @@
         {
             <tr>
                 <td>
-	            [image]	
+                    @{
+                        string imgPath = string.IsNullOrEmpty(item.Img) ? "drwho.jpg" : item.Img;
+                        <img class="pracSml" src="~/img/@imgPath" alt="" title="@item.Name" />
+			        }
 		        </td>
                 <td>
                     <a asp-controller="practitioner" asp-action="Index" asp-route-id="@item.MciIdx"> @Html.DisplayFor(modelItem => item.Title) @Html.DisplayFor(modelItem => item.Name) </a>

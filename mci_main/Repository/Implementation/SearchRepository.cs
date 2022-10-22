@@ -58,8 +58,9 @@ namespace mci_main.Repository
             query = query.ToLower();
             
             // Match lower case, return top 15 (TODO: limit after order by applied)
-            matches = _mciContext.Specialty.Take(15)
-                .Where(x => x.Title.ToLower().StartsWith(query)).Select(x => x.Title).ToList();
+            matches = _mciContext.Specialty
+                .Where(x => x.Title.ToLower().StartsWith(query) || x.Nominative.ToLower().StartsWith(query))
+	        	.Select(x => x.Nominative).Take(15).ToList();
 
             return new SearchResultsLite() { Specialties = matches };
         }
