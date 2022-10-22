@@ -1,4 +1,5 @@
-﻿using mci_main.Data;
+﻿using System.ComponentModel;
+using mci_main.Data;
 namespace mci_main.Models.View;
 
 public class PractitionerViewModel { 
@@ -6,6 +7,7 @@ public class PractitionerViewModel {
         public int MciIdx { get; set; }
         public string Name { get; set; }
         public Title Title { get; set; }
+        [DisplayName("Specialties")]
         public string SpecialtiesStr { get; set; }
         public string Location { get; set; }
         public string Bio { get; set; }

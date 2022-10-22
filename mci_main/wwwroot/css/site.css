@@ -70,6 +70,8 @@ div#pracImgWrap {
 img#pracImg {
     float:left;
     max-height: 320px;
+    max-width: 220px;
+    max-height: 300px;
 }
 
 div#pracDetails {
@@ -92,6 +94,12 @@ p.review-item-title {
 
 div#pracReviewSection {
 
+}
+
+/* Search View */
+img.pracSml {
+    width: 20px;
+    height: 20px;
 }
 
 /* Home  - TODO breakout! */

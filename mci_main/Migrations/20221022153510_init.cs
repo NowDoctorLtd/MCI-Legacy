@@ -35,6 +35,7 @@ namespace mci_main.Migrations
                     MciIdx = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
+                    Nominative = table.Column<string>(type: "TEXT", nullable: false),
                     LongDescription = table.Column<string>(type: "TEXT", nullable: false),
                     ShortDesc = table.Column<string>(type: "TEXT", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP")

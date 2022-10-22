@@ -134,6 +134,10 @@ namespace mci_main.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Nominative")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("ShortDesc")
                         .IsRequired()
                         .HasColumnType("TEXT");

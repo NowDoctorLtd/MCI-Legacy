@@ -1,9 +1,9 @@
 ﻿// ghastly.js
 
 $(document).ready(function () {
-    var topResult = null;
+    let topResult = null;
 
-    var doAutocomplete = function (request, response) {
+    const doAutocomplete = function (request, response) {
         $.ajax({
             type: "GET",
             url: "/search/lite?query=" + request["term"],

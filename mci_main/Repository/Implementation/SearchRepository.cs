@@ -24,6 +24,7 @@ namespace mci_main.Repository
             {
                 return new SearchResults(); 
             }
+
             var results = new SearchResults();
             results.SearchQuery = query;
 
@@ -31,14 +32,14 @@ namespace mci_main.Repository
 
             // Results - any practitioner with a matching name, or any prac with a matching spec
             var dbPractitioners = _mciContext.Practitioner.Include("PractitionerSpecialties.Specialty")
-                .Where(x => x.Name.ToLower().Contains(query)).Select(x => x).ToList();
+                .Where(x => x.Name.ToLower().Contains(query)).ToList();
 
             var viewPractitioners = PractitionerHelper.DbListToViewList(dbPractitioners);
 
             var dbPracsWithSpecialties = _mciContext.Practitioner.Include("PractitionerSpecialties.Specialty")
                 .Where(x => x.PractitionerSpecialties
-                    .Where(s => s.Specialty.Title.ToLower().Contains(query)).Any()
-                 ).ToList();
+                .Where(s => s.Specialty.Title.ToLower().Contains(query)).Any())
+		        .ToList();
 
             results.Practitioners = viewPractitioners;
 

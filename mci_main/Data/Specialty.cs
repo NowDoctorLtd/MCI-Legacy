@@ -15,7 +15,8 @@ namespace mci_main.Data
     {
         [Required]
         public string Title { get; set; }
-        // public string Nominative { get; set; } // i.e. -ist, required.
+        [Required]
+        public string Nominative { get; set; } // i.e. -ist, required.
         public string LongDescription { get; set; }
         public string ShortDesc { get; set; }
 

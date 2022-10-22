@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace mci_main.Migrations
 {
     [DbContext(typeof(MciContext))]
-    [Migration("20221009181237_init")]
+    [Migration("20221022153510_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -133,6 +133,10 @@ namespace mci_main.Migrations
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("LongDescription")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nominative")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

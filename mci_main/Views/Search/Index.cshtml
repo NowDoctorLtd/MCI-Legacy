@@ -3,21 +3,14 @@
 @{
     ViewData["Title"] = "Search Results";
 }
+<h1>Results</h1>
 
-<h1>Search</h1>
-
-<p>
-    <h1>Results</h1>
-</p>
 @if (Model.Practitioners != null && Model.Practitioners.Any())
 {
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Practitioners[0].Title)
-            </th>
-            <th>
+            <th colspan="2">
                 @Html.DisplayNameFor(model => model.Practitioners[0].Name)
             </th>
             <th>
@@ -26,7 +19,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Practitioners[0].SpecialtiesStr)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -34,19 +26,16 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
+	            [image]	
+		        </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    <a asp-controller="practitioner" asp-action="Index" asp-route-id="@item.MciIdx"> @Html.DisplayFor(modelItem => item.Title) @Html.DisplayFor(modelItem => item.Name) </a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Location)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.SpecialtiesStr)
-                </td>
-                <td>
-                    <a asp-controller="practitioner" asp-action="Index" asp-route-id="@item.MciIdx">Details</a>
                 </td>
             </tr>
             }
