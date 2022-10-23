@@ -17,6 +17,13 @@ builder.Services.AddTransient<ISearchRepository, SearchRepository>();
 builder.Services.AddTransient<IPractitionerRepository, PractitionerRepository>();
 builder.Services.AddTransient<IReviewRepository, ReviewRepository>();
 
+var mvcBuilder = builder.Services.AddRazorPages();
+
+if (builder.Environment.IsDevelopment())
+{
+    mvcBuilder.AddRazorRuntimeCompilation();
+}
+
 // END builder, create the webapp instance...
 var app = builder.Build();
 

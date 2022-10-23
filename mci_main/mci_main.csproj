@@ -22,6 +22,7 @@
     <None Remove="Models\View\" />
     <None Remove="Helpers\" />
     <None Remove="mci.db" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.8" />
@@ -35,6 +36,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.10" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\AdminPanel\" />
@@ -43,5 +45,9 @@
     <Folder Include="Views\Practitioner\" />
     <Folder Include="Models\View\" />
     <Folder Include="Helpers\" />
+    <Folder Include="wwwroot\css\base1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\base1\" />
   </ItemGroup>
 </Project>
