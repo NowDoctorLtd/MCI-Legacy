@@ -16,7 +16,7 @@ $(document).ready(function () {
      };
 
     $("#mainSearchBox").autocomplete({
-        minLength: 1,
+        minLength: 2,
         delay: 100,
         source: doAutocomplete,
         select: function (event, selection) {
@@ -24,9 +24,6 @@ $(document).ready(function () {
             console.log(selection.item.value);
             $("#mainSearchBox").val(selection.item.value);
             $("#mainSearchForm").submit();
-        },
-        close: function (e) {
-            $(this).val("");
         },
         response: function (e, ui) {
             if (ui.content.length > 0) {
@@ -38,21 +35,26 @@ $(document).ready(function () {
 
 
     // when press return (kc 13) search for topmost value (wip)
+
     $("#mainSearchBox").on('keypress', function (e) {
-        if (e.which == 13) {
-            event.preventDefault();
+        if (e.which === 13) { // enter
             if (topResult != null) {
+                e.preventDefault();
                 console.log(topResult);
                 $("#mainSearch").val(topResult);
-                $("#mainSearchForm").submit();
             }
             $(this).autocomplete("close");
-        } else if (e.which == 8) {
-            // FIXME: should clear top result and not nav when enter is struck after clearing
-
-            topResult = null;
+            $("#mainSearchForm").submit();
         }
     });
+
+    $("#mainSearchBox").on('keyup', function (e) {
+        console.log("all clear");
+        if (e.which === 8) { // backspace
+            // FIXME: should clear top result and not nav when enter is struck after clearing
+            topResult = null;
+        }
+    }
 
 });
 
