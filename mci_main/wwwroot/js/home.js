@@ -54,7 +54,6 @@ $(document).ready(function () {
             // FIXME: should clear top result and not nav when enter is struck after clearing
             topResult = null;
         }
-    }
-
+    });
 });
 

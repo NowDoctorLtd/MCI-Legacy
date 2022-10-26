@@ -30,6 +30,10 @@ a#mciName {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.navbar-dark .navbar-nav .nav-link, .navbar-brand, .navbar-light {
+    color: #ffffff !important;
+}
+
 /* Reusable Components */
 
 div#mainHeader {
@@ -105,6 +109,12 @@ img.pracSml {
 
 td.pracImg {
     width: 70px;
+}
+
+a.pracLink { }
+
+tr.pracListingRow {
+    font-size: 30px;
 }
 
 /* Home  - TODO breakout! */

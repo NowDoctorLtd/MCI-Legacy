@@ -14,17 +14,17 @@
                 @Html.DisplayNameFor(model => model.Practitioners[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Practitioners[0].Location)
+                @Html.DisplayNameFor(model => model.Practitioners[0].SpecialtiesStr)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Practitioners[0].SpecialtiesStr)
+                @Html.DisplayNameFor(model => model.Practitioners[0].Location)
             </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Practitioners)
         {
-            <tr>
+            <tr class="pracListingRow">
                 <td class="pracImg">
                     @{
                         string imgPath = string.IsNullOrEmpty(item.Img) ? "drwho.jpg" : item.Img;
@@ -33,13 +33,13 @@
 			        }
 		        </td>
                 <td>
-                    <a asp-controller="practitioner" asp-action="Index" asp-route-id="@item.MciIdx"> @Html.DisplayFor(modelItem => item.Title) @Html.DisplayFor(modelItem => item.Name) </a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Location)
+                    <a class="pracLink" asp-controller="practitioner" asp-action="Index" asp-route-id="@item.MciIdx"> @Html.DisplayFor(modelItem => item.Title) @Html.DisplayFor(modelItem => item.Name) </a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.SpecialtiesStr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
                 </td>
             </tr>
             }
