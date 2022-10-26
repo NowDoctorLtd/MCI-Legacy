@@ -25,10 +25,11 @@
         @foreach (var item in Model.Practitioners)
         {
             <tr>
-                <td>
+                <td class="pracImg">
                     @{
                         string imgPath = string.IsNullOrEmpty(item.Img) ? "drwho.jpg" : item.Img;
-                        <img class="pracSml" src="~/img/@imgPath" alt="" title="@item.Name" />
+                    <a asp-controller="practitioner" asp-action="Index" asp-route-id="@item.MciIdx"> 
+                        <img class="pracSml" src="~/img/@imgPath" alt="" title="@item.Name" /> </a>
 			        }
 		        </td>
                 <td>

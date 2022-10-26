@@ -20,8 +20,9 @@ body {
 /* Global Header */
 
 nav#mciNavBar {
-    background-color: #e3f2fd;
+    background-color: #284d22;
     font-weight: 400;
+    color: white;
 }
 
 a#mciName {
@@ -98,8 +99,12 @@ div#pracReviewSection {
 
 /* Search View */
 img.pracSml {
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+td.pracImg {
+    width: 70px;
 }
 
 /* Home  - TODO breakout! */
@@ -115,4 +120,8 @@ input#mainSearchBox {
 input#mainSearchButton {
     height: 3em;
     border-radius: 10px;
+}
+
+img#homeBkgImg {
+    width: 100%;
 }
