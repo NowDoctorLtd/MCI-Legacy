@@ -51,17 +51,18 @@ Yvonne
 my @SURNAMES = qw(
 Anderson Armstrong Alburn Alder Ashen
 Bates Brown Bolton Boyce Boyd Blair
-Conelly Columbus Caroll Chamberlain Claypool Coxon Currie
+Connolly Columbus Caroll Chamberlain Claypool Coxon Currie
 Dobbin Dell Delvin
+Erskin
 Griffin Goodman Green
 Hyde Hughes Hamilton
 Laverty
-Mitchell Moorehead Moore Montgomery McMullan McCallion McCullogh Morrison
+Mitchell Moorehead Moore Montgomery McMullan McCallion McCullogh Morrison McGlone
 Norris Newton
-Oldman Overend
-Parke Pollard
+Oldman Overend O'Leary
+Parke Pollard Paulson
 Ramsey Rochefort Robinson
-Smith Stuart
+Smith Stuart Steele Smyth
 Underwood
 Wall Whiteside Whitehead Willowfield Woods
 );
