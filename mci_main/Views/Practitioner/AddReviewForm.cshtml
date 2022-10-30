@@ -12,37 +12,37 @@
     <div class="col-md-4">
             <form asp-action="SubmitReview" asp-all-route-data="routeData" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="ReviewerName" class="control-label"></label>
-                    <input asp-for="ReviewerName" class="form-control" />
+                <div class="uk-margin">
+                    <label class="">Your Name</label>
+                    <input asp-for="ReviewerName" class="uk-input" />
                     <span asp-validation-for="ReviewerName" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="uk-margin">
                     <label asp-for="Title" class="control-label"></label>
-                    <input asp-for="Title" class="form-control" />
+                    <input asp-for="Title" class="uk-input" />
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="uk-margin">
                     <label asp-for="Comment" class="control-label"></label>
-                    <input asp-for="Comment" class="form-control" />
+                    <textarea id="commentArea" rows="5" cols="60" asp-for="Comment" class="uk-input" ></textarea>
                     <span asp-validation-for="Comment" class="text-danger"></span>
                 </div>
 
-                <div class="form-group">
+                <div class="uk-margin">
                     <label class="control-label">Describe the practitioner using any of these words</label>
                     <ul id="#adjList">Loading..</ul>
                     <p>To Be Implemented</p>
                     <span class="text-danger"></span>
                 </div>
 
-                <div class="form-group">
+                <div class="uk-margin">
                     <label asp-for="DateVisited" class="control-label"></label>
-                    <input asp-for="DateVisited" class="form-control" />
+                    <input asp-for="DateVisited" class="uk-input" />
                     <span asp-validation-for="DateVisited" class="text-danger"></span>
                 </div>
 
-                <div class="form-group">
-                    <input type="submit" value="Submit" class="btn btn-primary" />
+                <div class="uk-margin">
+                    <input type="submit" value="Submit" class="uk-button uk-button-primary" />
                 </div>
             </form>
         </div>

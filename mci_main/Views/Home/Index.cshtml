@@ -3,17 +3,17 @@
     ViewData["scripts"] = "home.js";
 }
 
-<div class="text-center">
+<div id="homeContainer" class="">
     <div id="homeBkg">
 <!--        <img id="homeBkgImg" src="~/img/samples/memphis.png" /> -->
     </div>
     <h1 class="display-4">Welcome</h1>
-    <div class="search_body">
+    <div id="searchBody">
         <p>Let's get a search in here...</p>
         <form id="mainSearchForm" asp-controller="search" asp-action="Index" method="post">
             <p>
                 <input placeholder="Search for @ViewData["QueryExamples"]..." id="mainSearchBox" type="text" name="query" autocomplete="off"/>
-                <input id="mainSearchButton" type="submit" value="FIND IT NOW" />
+                <button id="mainSearchButton" type="submit" class="uk-button uk-button-default uk-button-large" >FIND IT NOW</button>
             </p>
         </form>
         <p>Need help? Todo: help</p>
