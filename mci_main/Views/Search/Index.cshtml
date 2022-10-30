@@ -5,6 +5,7 @@
 }
 <h1>Results</h1>
 
+<div class="uk-card uk-card-default uk-card-body">
 @if (Model.Practitioners != null && Model.Practitioners.Any())
 {
 <table class="uk-table uk-table-divider uk-table-hover">
@@ -51,3 +52,4 @@ else
     <h2>No Results, sorry</h2>
     <p>Try again here: </p>
 }
+</div>

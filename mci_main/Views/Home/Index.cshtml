@@ -3,20 +3,20 @@
     ViewData["scripts"] = "home.js";
 }
 
-<div id="homeContainer" class="">
+<div id="homeContainer" class="uk-card uk-card-default uk-card-body">
     <div id="homeBkg">
 <!--        <img id="homeBkgImg" src="~/img/samples/memphis.png" /> -->
     </div>
     <h1 class="uk-heading-small no-margins">Welcome</h1>
     <div id="searchBody">
-        <p>Let's get a search in here...</p>
+        <p>Need advice or treatment? We will find your ideal consultant.</p>
         <form id="mainSearchForm" asp-controller="search" asp-action="Index" method="post">
             <p>
                 <input placeholder="Search for @ViewData["QueryExamples"]..." id="mainSearchBox" type="text" name="query" autocomplete="off"/>
                 <button id="mainSearchButton" type="submit" class="uk-button uk-button-default uk-button-large" >FIND IT NOW</button>
             </p>
         </form>
-        <p>Need help? Todo: help</p>
+        <p>Need help? Todo: help<!-- Modal Popover --></p>
     </div>
 </div>
 

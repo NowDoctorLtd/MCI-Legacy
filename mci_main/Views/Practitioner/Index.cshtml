@@ -9,7 +9,7 @@
 
 <h1>Practitioner Details</h1>
 
-<div id="pracDetailsWrapper">
+<div id="pracDetailsWrapper" class="uk-card uk-card-default uk-card-body">
     <div id="pracImgWrap">
         <img id="pracImg" src="~/img/@imgPath" alt="doctor... who?" title="@Model.Name" />
     </div>
@@ -23,7 +23,7 @@
     </div>
 </div>
 
-<div id="reviewSection">
+<div id="pracReviewSection" class="uk-card uk-card-default uk-card-body">
     <h2>Characterised as</h2>
     <div id="prachChar">
         @if (Model.Adjectives != null && Model.Adjectives.Count > 0)
@@ -57,9 +57,9 @@
     }
 
     </div>
-</div>
-<div class="action-section">
-    <a asp-action="AddReviewForm" asp-route-id="@Model.MciIdx">Add Review</a> |
-    <a asp-action="GetAllReviews" asp-route-id="@Model.MciIdx">See All Reviews</a>
+	    <div class="action-section">
+	    <a asp-action="AddReviewForm" asp-route-id="@Model.MciIdx">Add Review</a> |
+	    <a asp-action="GetAllReviews" asp-route-id="@Model.MciIdx">See All Reviews</a>
+	</div>
 </div>
 
