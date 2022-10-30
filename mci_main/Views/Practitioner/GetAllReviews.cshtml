@@ -8,7 +8,7 @@
     <h1>Practitioner Reviews</h1>
 </div>
 
-<div class="list-body">
+<div class="uk-card uk-card-default uk-card-body">
     @foreach(var review in Model)
     { 
     <div class="review-item">
@@ -18,8 +18,8 @@
         <p>Date of Visit: @review.DateVisited</p>
     </div>
     }
+	<div class="action-section">
+	    <a asp-controller="practitioner" asp-action="Index" asp-route-id="@ViewData["id"]">Back</a>
+	</div>
 </div>
 
-<div class="action-section">
-    <a asp-controller="practitioner" asp-action="Index" asp-route-id="@ViewData["id"]">Back</a>
-</div>

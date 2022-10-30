@@ -5,13 +5,14 @@
 }
 
 <h1>Practitioner Review</h1>
-<p>@Model.Title</p>
-<p>@Model.Comment</p>
-<p>Review by: @Model.ReviewerName</p>
-<p>Date of Visit: @Model.DateVisited</p>
+<div class="uk-card uk-card-default uk-card-body">
+	<p>@Model.Title</p>
+	<p>@Model.Comment</p>
+	<p>Review by: @Model.ReviewerName</p>
+	<p>Date of Visit: @Model.DateVisited</p>
 
-<div class="action-section">
-    <a asp-controller="practitioner" asp-action="Index" asp-route-id="@Model.PracIdx">Back</a>
+	<div class="action-section">
+	    <a asp-controller="practitioner" asp-action="Index" asp-route-id="@Model.PracIdx">Back</a>
+	</div>
 </div>
-
 
