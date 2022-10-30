@@ -1,5 +1,8 @@
 ﻿html {
+    position: relative;
+    min-height: 100%;
     font-size: 14px;
+    background-color: #f9f9f9;
 }
 
 @media (min-width: 768px) {
@@ -7,14 +10,7 @@
         font-size: 16px;
     }
 }
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-
 body {
-    background-color: #f9f9f9;
 }
 
 div#mainPageBody {
@@ -139,7 +135,8 @@ input#mainSearchBox {
 
 button#mainSearchButton {
     border-radius: 5px;
-    background-color: #b0b0b0;
+    background-color: #b9b7b7;
+    border: 1px solid #939393;
 }
 
 img#homeBkgImg {
@@ -150,4 +147,11 @@ div#searchBody {
 }
 
 div#homeContainer {
+    text-align: center;
+    margin-top: 0px;
+}
+
+/* CONVENIENCES */
+.no-margins {
+    margin: 0;
 }
