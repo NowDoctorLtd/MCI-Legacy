@@ -26,9 +26,12 @@
 				<li class="nav-item">
 				    <a class="navbar-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 				</li>
+                 @if (false)
+                 {
 				<li class="">
 				    <a class="navbar-light" asp-area="" asp-controller="AdminPanel" asp-action="Index">Admin</a>
 				</li>
+                 }
 			    </ul>
 			</div>
         </nav>
@@ -47,11 +50,11 @@
     <script src="~/js/contrib/underscore-umd.js" defer></script>
     <script src="~/js/contrib/backbone-full-1.4.1.js" defer></script>
     <script src="~/js/contrib/jquery-ui.js"></script>
-    <script src="~/js/site.js" asp-append-version="true" defer></script>
+    <script src="@Url.Content("~/js/site.js")" asp-append-version="true" defer></script>
     @if (ViewData["scripts"] != null)
         {
             // TODO: Work with many scripts....
-        <script src = @Href("~/js/" + ViewData["scripts"]) asp-append-version="true" defer></script>
+        <script src ="@Url.Content("~/js/" + ViewData["scripts"])" asp-append-version="true" defer></script>
     }
     @await RenderSectionAsync("Scripts", required: false)
 </body>

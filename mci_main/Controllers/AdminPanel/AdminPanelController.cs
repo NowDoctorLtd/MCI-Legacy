@@ -9,6 +9,7 @@ using mci_main.Data;
 
 namespace mci_main.Controllers.AdminPanel
 {
+    /*
     [Route("adminpanel")]
     public class AdminPanelController : Controller
     {
@@ -167,4 +168,5 @@ namespace mci_main.Controllers.AdminPanel
           return (_context.Practitioner?.Any(e => e.MciIdx == id)).GetValueOrDefault();
         }
     }
+    */
 }

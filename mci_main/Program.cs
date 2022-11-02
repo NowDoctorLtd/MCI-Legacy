@@ -1,7 +1,11 @@
+using System.Configuration;
 using mci_main.Data;
 using mci_main.Repository;
 using mci_main.Repository.Implementation;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+
+string webRoot = Path.Combine(AppContext.BaseDirectory, "wwwroot");
 
 // BEGIN Builder.
 var builder = WebApplication.CreateBuilder(args);
@@ -40,11 +44,12 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+    builder.WebHost.UseUrls("http://*:80", "https://*.443");
 }
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
 app.UseAuthorization();
