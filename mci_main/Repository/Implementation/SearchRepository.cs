@@ -38,7 +38,7 @@ namespace mci_main.Repository
 
             var dbPracsWithSpecialties = _mciContext.Practitioner.Include("PractitionerSpecialties.Specialty")
                 .Where(x => x.PractitionerSpecialties
-                .Where(s => s.Specialty.Title.ToLower().Contains(query)).Any())
+                .Where(s => s.Specialty.Nominative.ToLower().Contains(query)).Any())
 		        .ToList();
 
             results.Practitioners = viewPractitioners;
