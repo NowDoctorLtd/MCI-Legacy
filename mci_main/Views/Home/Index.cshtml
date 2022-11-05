@@ -7,13 +7,13 @@
     <div id="homeBkg">
 <!--        <img id="homeBkgImg" src="~/img/samples/memphis.png" /> -->
     </div>
-    <h1 class="uk-heading-small no-margins">Welcome</h1>
+    <h1 class="uk-heading-small no-margins mci-body-font">Welcome</h1>
     <div id="searchBody">
         <p>Need advice or treatment? We will find your ideal consultant.</p>
         <form id="mainSearchForm" asp-controller="search" asp-action="Index" method="post">
             <p>
                 <input placeholder="Search for @ViewData["QueryExamples"]..." id="mainSearchBox" type="text" name="query" autocomplete="off"/>
-                <button id="mainSearchButton" type="submit" class="uk-button uk-button-default uk-button-large" >FIND IT NOW</button>
+                <button id="mainSearchButton" type="submit" class="uk-button uk-button-default uk-button-large mci-body-font" >FIND IT NOW</button>
             </p>
         </form>
         <p>Need help? Todo: help<!-- Modal Popover --></p>
