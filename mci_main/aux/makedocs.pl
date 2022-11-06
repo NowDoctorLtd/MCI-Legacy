@@ -1,4 +1,4 @@
-#!env perl
+#!/usr/bin/env perl
 use v5.32;
 use warnings;
 
@@ -8,15 +8,15 @@ Alf Archer Alfred
 Bryan Bryson Bernard Bruce Ben Barry Bill
 Christopher Carl Cyril Ciaran Colin
 David Daniel Damon
-Edward Edgar Ethel Ebenezer
+Edward Edgar Ethel Ebenezer Eric
 Felix Fontaine
 George Glenn Godwin Graham Gerald
-Harold Hubert Hugh Horace
+Harold Hubert Hugh Horace Humphery
 Ian
 Joseph James Jonathan
 Kenneth
 Lawrence Leslie Llaim Louis Linus
-Michael Mark Matthew Maximillian Morris
+Michael Mark Matthew Maximillian Morris Mortimer
 Nicholas Neville
 Paul Peter Philip Patrick
 Quentin
@@ -50,10 +50,10 @@ Yvonne
 );
 
 my @SURNAMES = qw(
-Anderson Armstrong Alburn Alder Ashen
+Anderson Armstrong Alburn Alder Ashen Archibald Archer Appleby
 Bates Brown Bolton Boyce Boyd Blair
 Connolly Columbus Caroll Chamberlain Claypool Coxon Currie Carruthers
-Crossett Crooks Cutter Cage Cooke Chapman
+Crossett Crooks Cutter Cage Cooke Chapman Cartman
 Dobbin Dell Delvin Davis Doyle Defoe
 Erskin
 Forsythe
@@ -65,7 +65,7 @@ Mitchell Moorehead Moore Montgomery McMullan McCallion McCullogh Morrison McGlon
 Norris Newton
 Oldman Overend O'Leary
 Parke Pollard Paulson
-Ramsey Rochefort Robinson
+Ramsey Rochefort Robinson Ramseybaggs
 Smith Stuart Steele Smyth Stone Stallman
 Theroux
 Underwood

@@ -1,4 +1,4 @@
-#!env perl
+#!/usr/bin/env perl
 # Read XLS into database.
 # Copyright 2022 NowDoctor Ltd.
 
